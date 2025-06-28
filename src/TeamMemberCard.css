@@ -1,0 +1,22 @@
+.team-card {
+  border: 2px solid #e0e0e0;
+  padding: 16px;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.team-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.App {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
