@@ -36,24 +36,9 @@ function App() {
 export default App;*/
 
 //task 3
-/*import React from 'react';
-import LikeButton from './LikeButton';
-import LiveInput from './LiveInput';
 
-function App() {
-  return (
-    <div style={{ padding: '40px', textAlign: 'center' }}>
-      <h1>Event</h1>
-      <LikeButton />
-      <LiveInput />
-    </div>
-  );
-}
-
-export default App;*/
-
-//task 4
 /*import React, { useState } from 'react';
+import './App.css'; // ✅ Import the CSS
 
 function App() {
   const [task, setTask] = useState('');
@@ -65,11 +50,17 @@ function App() {
 
     const newTodo = {
       id: Date.now(),
-      text: task
+      text: task,
+      date: new Date().toLocaleDateString(),
+      done: false
     };
 
     setTodos([...todos, newTodo]);
     setTask('');
+  };
+
+  const toggleDone = (id) => {
+    setTodos(todos.map(todo => todo.id === id ? { ...todo, done: !todo.done } : todo));
   };
 
   const handleDelete = (id) => {
@@ -77,35 +68,51 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: '400px', margin: '40px auto', textAlign: 'center' }}>
+    <div className="app-container">
       <h1>📝 To-Do List</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="todo-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter a task"
           value={task}
           onChange={(e) => setTask(e.target.value)}
-          style={{ padding: '8px', width: '80%' }}
         />
-        <button type="submit" style={{ padding: '8px', marginLeft: '10px' }}>Add</button>
+        <button type="submit">Add</button>
       </form>
 
-      <ul style={{ listStyle: 'none', padding: 0, marginTop: '20px' }}>
-        {todos.map((todo) => (
-          <li key={todo.id} style={{ margin: '10px 0' }}>
-            {todo.text}
-            <button onClick={() => handleDelete(todo.id)} style={{ marginLeft: '10px' }}>
-              ❌
-            </button>
-          </li>
-        ))}
-      </ul>
+      {todos.length > 0 ? (
+        <div className="table-wrapper">
+          <table className="todo-table">
+            <thead>
+              <tr>
+                <th>✔️</th>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {todos.map(todo => (
+                <tr key={todo.id} className={todo.done ? 'done' : ''}>
+                  <td><input type="checkbox" checked={todo.done} onChange={() => toggleDone(todo.id)} /></td>
+                  <td>{todo.text}</td>
+                  <td>{todo.date}</td>
+                  <td><button onClick={() => handleDelete(todo.id)}>❌</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p>No tasks added yet.</p>
+      )}
     </div>
   );
 }
 
 export default App;*/
+
 
 //task 5
 /*import React, { useEffect, useState } from 'react';
@@ -164,7 +171,11 @@ function App() {
 export default App;*/
 
 // task 6
+
+
+
 /*import React from 'react';
+import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -184,3 +195,4 @@ function App() {
 }
 
 export default App;*/
+
